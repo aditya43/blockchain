@@ -48,9 +48,19 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * Its transparent and the immutable ledger makes it easy for different parties in a business network to collaborate, manage data and reach agreements.
 - **Programmability**:
     * Its programmable, so its able to execute things like **smart contracts** and help be more tamper proof and have deterministic software that automates the business logic.
+    * We can code to address many different things from governance to compliance, regulatory compliance, data privacy, identity, looking at things like "know your customer" types things or anti money laundring attributes.
+    * It manages that stakeholder participation, like for things like proxy voting.
 - **Privacy**:
     * It provides privacy.
 - **High-Performance**:
     * It can be a private network of hybrid networks and they are engineered to sustain hundreds/millions of transactions per second and also handle periodic surges in network activity.
 - **Scalability**:
     * Its highly scalable.
+- **Authenticity and Scarcity**:
+    * Digitization really ensures data integrity and enables acid profits. It's really a full transaction history in that single shared source of truth.
+- **Streamlined Processes**:
+    * Since it can automate almost everything, it can enable some more real time settlements, auditing, reporting and reduces processing times and the potential for error and the delays due to number of steps and intermediaries required to achieve the same level of confidence.
+- **Economic Benefits**:
+    * Reduced infrastructure, operational and transaction cost.
+- **Market Reactivity**:
+    * It can be very reactive to market.
