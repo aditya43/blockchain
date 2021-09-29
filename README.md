@@ -15,6 +15,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 ## Important Notes
 - [Blockchain Basics](#blockchain-basics)
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
+- [Smart Contracts](#smart-contracts)
 
 -----------
 
@@ -64,3 +65,19 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * Reduced infrastructure, operational and transaction cost.
 - **Market Reactivity**:
     * It can be very reactive to market.
+
+-----------
+
+## Smart Contracts
+- **Contracts**:
+    * A contract is formed when an **offer** by one party is **accepted** by the other party.
+    * **Consideration** is the price paid for the promise of the other party. The price may not necessarily involve money.
+        - For e.g. If you walk my dog, i will feed your cat.
+        - For e.g. If you walk my dog, i will pay you 15 Rs.
+- **Smart Contracts**:
+    ```go
+    Contract terms are agreed to ----> Smart Contract placed on the Blockchain ----> Triggering event causes contract to be automatically executed
+    ```
+    * **Contract terms are agreed to**: Hard coded and cannot be changed without both parties being aware.
+    * **Smart Contract placed on the Blockchain**: Public viewed and verified.
+    * **Triggering event causes contract to be automatically executed**: If/then statement coding.
