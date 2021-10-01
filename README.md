@@ -16,6 +16,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Blockchain Basics](#blockchain-basics)
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
 - [Smart Contracts](#smart-contracts)
+- [Development Environment Setup](#development-environment-setup)
 
 -----------
 
@@ -81,3 +82,76 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * **Contract terms are agreed to**: Hard coded and cannot be changed without both parties being aware.
     * **Smart Contract placed on the Blockchain**: Public viewed and verified.
     * **Triggering event causes contract to be automatically executed**: If/then statement coding.
+
+-----------
+
+## Development Environment Setup
+- Install `Oracle Virtual Box`.
+- Install `Vagrant`.
+- Create `/projects` directory.
+- Inside project directory (e.g. `/projects/hlf/`), create `/mount` directory. This is where we will put all of code.
+- Inside project directory (e.g. `/projects/hlf/`), run following command:
+```sh
+vagrant init
+```
+- Above command will create `Vagrantfile` in project directory. Open it in editor and set following:
+```sh
+# Checkout boxes at: https://vagrantcloud.com/search
+config.vm.box = "generic/ubuntu2010"
+
+# Setup network
+config.vm.network "private_network", ip "192.168.33.10"
+
+# Mount folder
+config.vm.synced_folder "./mount", "/home/vagrant/mount"
+
+# Configure memory
+config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "10000" #10 GB
+end
+```
+- Inside project directory (e.g. `/projects/hlf/`), run following command:
+```sh
+# This will bootup our virtual linux box
+vagrant up
+```
+- Once the virtual linux box is up and running, minimize it and in our parent/host OS terminal/command prompt, run:
+```sh
+# This will ssh into our running virtual linux box
+vagrant ssh
+```
+- After doing ssh, install Hyperledger Fabric pre-requisites ([https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html)):
+```sh
+# install git
+sudo apt install  git -y
+
+# install curl
+sudo apt install curl -y
+
+# install docker
+sudo apt install build-essential -y
+sudo apt install apt-transport-https ca-certificates gnupg-agent software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
+sudo usermod -aG docker $USER
+newgrp docker
+
+# install go
+curl -o "go.tar.gz" https://storage.googleapis.com/golang/...
+sudo tar -C /usr/local -xzf "go.tar.gz"
+
+export PATH=$PATH:/usr/local/go/bin
+source ~/.bashrc
+
+# install node
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install nodejs -y
+
+# install ohmyzsh
+sudo apt install zsh -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
