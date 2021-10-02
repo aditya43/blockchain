@@ -141,7 +141,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # install go
-curl -o "go.tar.gz" https://storage.googleapis.com/golang/...
+curl -o "go.tar.gz" https://storage.googleapis.com/golang/go1.17.1.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf "go.tar.gz"
 
 export PATH=$PATH:/usr/local/go/bin
