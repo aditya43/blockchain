@@ -150,3 +150,11 @@ sudo apt install nodejs -y
 sudo apt install zsh -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+- Install Samples, Binaries and Docker Images:
+```sh
+# SSH into vagrant
+vagrant ssh
+
+# Install samples, binaries and docker images
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.4 1.5.2
+```
