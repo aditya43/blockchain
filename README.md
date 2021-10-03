@@ -86,16 +86,13 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 -----------
 
 ## Development Environment Setup
-- Install `Oracle Virtual Box`.
-- Install `Vagrant`.
-- Create `/projects` directory.
-- Inside project directory (e.g. `/projects/hlf/`), create `/mount` directory. This is where we will put all of code.
-- Inside project directory (e.g. `/projects/hlf/`), run following command:
+- Install `Oracle Virtual Box` [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
+- Install `Vagrant` [https://www.vagrantup.com/downloads](https://www.vagrantup.com/downloads).
 ```sh
+# Initialize vagrant and create Vagrantfile
 vagrant init
-```
-- Above command will create `Vagrantfile` in project directory. Open it in editor and set following:
-```sh
+
+# +-+-+-+-+-+-+-+-+ Configure Vagrantfile +-+-+-+-+-+-+-+-+
 # Checkout boxes at: https://vagrantcloud.com/search
 config.vm.box = "generic/ubuntu2010"
 
@@ -110,19 +107,16 @@ config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.memory = "10000" #10 GB
 end
-```
-- Inside project directory (e.g. `/projects/hlf/`), run following command:
-```sh
-# This will bootup our virtual linux box
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+# Bootup our virtual linux box
 vagrant up
-```
-- Once the virtual linux box is up and running, minimize it and in our parent/host OS terminal/command prompt, run:
-```sh
-# This will ssh into our running virtual linux box
+
+# SSH into our running virtual linux box
 vagrant ssh
-```
-- After doing ssh, install Hyperledger Fabric pre-requisites ([https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html](https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html)):
-```sh
+
+# +-+-+-+-+-+-+- Install HLF Pre-Requisites +-+-+-+-+-+-+-+
+# https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html
 # install git
 sudo apt install  git -y
 
