@@ -17,6 +17,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
 - [Smart Contracts](#smart-contracts)
 - [Development Environment Setup](#development-environment-setup)
+- [Key Concepts](#key-concepts)
 
 -----------
 
@@ -172,3 +173,18 @@ vagrant ssh-config
 # config.vm.network "private_network", ip: "192.168.33.10"
 ssh vagrant@192.168.33.10 -i "C:/Aditya/Projects/HLF/.vagrant/machines/default/virtualbox/private_key"
 ```
+
+-----------
+
+## Key Concepts
+- **Blockchain**: It is a shared, replicated transaction system (**Distributed Ledger**) which is updated with the help of **Smart Contracts** and kept consistently synchronized through a process called **Consensus**. It is a append-only transaction system.
+    * **Distributed Ledger**: It is a database that is concensually shared and synchronized across multiple sites, institutions or geaographies and it is accessible by multiple people.
+    * **Smart Contracts**: It is a self-executing contract with the terms of the agreement between buyer and seller being directly written into lines of codes. The code and the agreement contained therein exists across a distributed, decentralized blockchain network.
+    * **Consensus**: The majority of opinion, agreement amoung a group of people.
+    * **Private Blockchain vs. Public Blockchain**: In public blockchain, anyone can send a transaction, while in private blockchain, only participants who are approved can send transactions.
+    * **Permissioned Blockchain vs. Permissionless Blockchain**: Permissionless blockchain allow people to act anonymously (you do not know their identity), while in permissioned blockchain the identities of participants are known.
+    * **Examples of Public and Permissionless Blockchain**: Bitcoin, Etherium.
+    * **Examples of Private and Permissioned Blockchain**: Hyperledger Fabric, JP Morgan.
+    * **Cryptocurrencies (Bitcoin, Etherium etc.)**: Cryptocurrency is not same as a blockchain. Cryptocurrency use blockchain to store transactions. Most of the cryptocurrencies use their own type of blockchain with some aspects that make them unique and best for their own usecase.
+
+
