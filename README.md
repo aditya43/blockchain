@@ -155,6 +155,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # SSH into vagrant
 vagrant ssh
 
+# Go to /mount directory
+cd mount
+
 # Install samples, binaries and docker images
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.4 1.5.2
 ```
