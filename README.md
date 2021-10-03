@@ -161,3 +161,14 @@ cd mount
 # Install samples, binaries and docker images
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.4 1.5.2
 ```
+- Install `SSH` plugin for VSCode.
+- While vagrant machine is up and running, execute following to get location of `IdentityFile`:
+```sh
+vagrant ssh-config
+```
+- Add new SSH host into VSCode SSH plugin:
+```sh
+# Host can be found in Vagrantfile. Look for following line:
+# config.vm.network "private_network", ip: "192.168.33.10"
+ssh vagrant@192.168.33.10 -i "C:/Aditya/Projects/HLF/.vagrant/machines/default/virtualbox/private_key"
+```
