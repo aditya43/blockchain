@@ -70,6 +70,9 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Chaincode execution results in a set of key-value pairs which are also called a `Right Set`.
         - `Right Set` can be submitted to the network and thereby append to the ledger.
         - Chaincode execution is partitioned from transaction ordering, limiting the required level of trust and verification across node types, and optimizing network scalability and performance.
+    * **Ledger**:
+        - Ledger contains all of the state mutations or transactions. These state changes are produced by the invocation of chaincode.
+        - The immutable, shared ledger encodes the entire transaction history for each channel, and includes SQL-like query capability for efficient auditing and dispute resolution.
 
 -----------
 
