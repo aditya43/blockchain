@@ -75,6 +75,14 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - The immutable, shared ledger encodes the entire transaction history for each channel, and includes SQL-like query capability for efficient auditing and dispute resolution.
     * **Privacy**:
         - Channels and private data collections enable private and confidential multi-lateral transactions that are usually required by competing businesses and regulated industries that exchange assets on a common network.
+    * **Security And Membership Services**:
+        - In Fabric Network, all participants have known identities.
+        - Public key infrastructure is used to generate cryptographic cenrtificates. These certificates can be tied to an organization, a network component, a user or a client application. These certificates can be used to manage data access control.
+        - Role based governing with the help of certificates is the thing which made Fabric `Permissioned`.
+        - Permissioned membership provides a trusted blockchain network, where participants know that all transactions can be detected and traced by authorized regulators and auditors.
+    * **Consensus**:
+        - At a very high level, we can say Consensus Model has something to do with multiple participants agreeing on something.
+        - A unique approch to Consensus enables the flexibility and scalability needed for the enterprise.
 
 -----------
 
