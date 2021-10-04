@@ -17,6 +17,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Key Concepts](#key-concepts)
     ```diff
     + Blockchain
+    + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
     ```
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
 - [Smart Contracts](#smart-contracts)
@@ -53,6 +54,14 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * **Examples of Public and Permissionless Blockchain**: Bitcoin, Etherium.
     * **Examples of Private and Permissioned Blockchain**: Hyperledger Fabric, JP Morgan.
     * **Cryptocurrencies (Bitcoin, Etherium etc.)**: Cryptocurrency is not same as a blockchain. Cryptocurrency use blockchain to store transactions. Most of the cryptocurrencies use their own type of blockchain with some aspects that make them unique and best for their own usecase.
+- **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
+    * **Assets**:
+        - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
+        - Asset within the network are represented as a collection of key-value pairs with state changes that records the transaction on the ledger or distributed ledger.
+        - Assets can be represented in `Binary` and `JSON` format.
+        - There are 2 types of Assets viz. `Tangible Assets` and `Intangible Assets`
+            * **Tangible Assets**: Tangible assets are typically physical assets or properties owned by a company. For e.g. Computer equipment. Tangible assets are the main type of assets that companies use to produce their product and service.
+            * **Intangible Assets**: Intangible Assets don't exists physically, yet they have a monetory value since they represent potential revenue. For e.g. stock, bond, copyright of a song. The record company that owns the copyright would get paid a royalty each time the song is played.
 
 -----------
 
