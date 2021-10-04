@@ -1,0 +1,277 @@
+{
+    "workbench.sideBar.location": "right",
+    "telemetry.enableTelemetry": false,
+    // "explorer.decorations.badges": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.cursorWidth": 2,
+    "editor.fontWeight": "600",
+    // "editor.fontFamily": "FiraCode-Medium",
+    // "editor.fontFamily": "Hasklig Medium",
+    // "editor.fontFamily": "OperatorMono-Medium",
+    "editor.fontFamily": "Hasklig-Medium",
+    // "editor.fontFamily": "OperatorMonoForPowerline-Medium",
+    // "editor.fontFamily": "Roboto Mono Medium",
+    // "editor.fontFamily": "Dank Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.wordWrap": "on",
+    "editor.lineHeight": 45,
+    "editor.minimap.enabled": false,
+    // "editor.quickSuggestions": {
+    //     "other": true,
+    //     "comments": true,
+    //     "strings": true
+    // },
+    "editor.renderLineHighlight": "none",
+    "editor.smoothScrolling": true,
+    "editor.tabCompletion": "on",
+    // "editor.autoClosingBrackets": "always",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "none",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.enableBell": true,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.lineHeight": 1.4,
+    "editor.occurrencesHighlight": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.cursorBlinking": "expand",
+    // "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+    "eslint.validate": [
+        // "typescript",
+        "javascript",
+        // "vue",
+        "javascriptreact"
+      ],
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/web/node_modules": true,
+        "**/web/build": true, // will change frequently by build command
+        "**/admin/node_modules": true
+    },
+    "disableLigatures.mode": "Cursor",
+    // "editor.quickSuggestionsDelay": 5,
+    // "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    // "editor.selectionHighlight": false,
+    "editor.cursorStyle": "line",
+    "workbench.colorCustomizations":{
+        // "editor.background": "#21222c",
+        // "editor.background": "#1b1e2b",
+        "sideBar.background": "#282a36",
+        // "editorBracketMatch.border": "#202c3b",
+        // "editorBracketMatch.background": "#202c3b"
+    },
+    // "emmet.showSuggestionsAsSnippets": true,
+    // "terminal.integrated.shell.osx": "/bin/zsh",
+    "code-runner.clearPreviousOutput": true,
+    "workbench.fontAliasing": "antialiased",
+    "terminal.integrated.fontWeightBold": "bold",
+    "bracket-pair-colorizer-2.scopeLineCSS": [
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : Orchid",
+        "opacity: 0.3"
+    ],
+    // "oneDarkPro.editorTheme": "onedarkPro",
+    // "oneDarkPro.vivid": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.suggest.localityBonus": true,
+    "editor.suggest.shareSuggestSelections": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.options": {
+        "configFile": "/Users/adiinviter/.eslintrc"
+    },
+    // "terminal.integrated.fontFamily": "FiraCode-Medium",
+    "terminal.integrated.fontFamily": "OperatorMonoForPowerline-Medium",
+    "editor.definitionLinkOpensInPeek": true,
+    "go.lintTool": "golangci-lint",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "go.lintOnSave": "package",
+    "go.vetOnSave": "package",
+    "go.vetFlags": [
+        "-all",
+        "-shadow"
+    ],
+    // "workbench.colorTheme": "One Dark Pro",
+    // "oneDarkPro.bold": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
+    },
+    "[go.mod]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+    },
+    "workbench.editor.scrollToSwitchTabs": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "code-runner.executorMap": {
+        // "typescript": "node -r ts-node/register",
+        // "typescript": "/ts-node",
+        // "ts-node": "typescript",
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "scheme": "csi -script",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        "lisp": "sbcl --script",
+        "kit": "kitc --run",
+        "v": "v run",
+        "sass": "sass --style expanded",
+        "scss": "scss --style expanded",
+        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css"
+    },
+    "code-runner.enableAppInsights": false,
+    "eslint.alwaysShowStatus": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    // "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.inheritEnv": false,
+    "python.languageServer": "Pylance",
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-path.mac": "/Users/adiinviter/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path.mac": "/Users/adiinviter/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.helm-path.mac": "/Users/adiinviter/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vscode-kubernetes.minikube-path.mac": "/Users/adiinviter/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "workbench.colorTheme": "Dracula",
+    // "editor.tokenColorCustomizations": {
+    //     "textMateRules": [
+    //         {
+    //             "name": "One Dark italic",
+    //             "scope": [
+    //                 "comment",
+    //                 "entity.other.attribute-name",
+    //                 "keyword",
+    //                 "markup.underline.link",
+    //                 "storage.modifier",
+    //                 "storage.type",
+    //                 "string.url",
+    //                 "variable.language.super",
+    //                 "variable.language.this"
+    //             ],
+    //             "settings": {
+    //                 "fontStyle": "italic"
+    //             }
+    //         },
+    //         {
+    //             "name": "One Dark italic reset",
+    //             "scope": [
+    //                 "keyword.operator",
+    //                 "keyword.other.type",
+    //                 "storage.modifier.import",
+    //                 "storage.modifier.package",
+    //                 "storage.type.built-in",
+    //                 "storage.type.function.arrow",
+    //                 "storage.type.generic",
+    //                 "storage.type.java",
+    //                 "storage.type.primitive"
+    //             ],
+    //             "settings": {
+    //                 "fontStyle": ""
+    //             }
+    //         }
+    //     ]
+    // },
+    "jupyter.alwaysTrustNotebooks": true,
+    "jupyter.askForKernelRestart": false,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "jupyter.alwaysScrollOnNewCell": true,
+    "jupyter.textOutputLimit": 0,
+    "material-icon-theme.hidesExplorerArrows": false,
+    "material-icon-theme.activeIconPack": "react_redux",
+    "editor.quickSuggestions": true,
+	"editor.wordBasedSuggestions": true,
+    "editor.parameterHints.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.linkedEditing": true,
+    // "github.copilot.inlineSuggest.enable":true,
+    // "github.copilot.autocomplete.enable":true,
+    // "github.copilot.enable": {
+    //     "*": false,
+    //     "yaml": false,
+    //     "plaintext": false,
+    //     "markdown": false,
+    //     "go": false,
+    //     "javascript": true,
+    //     "typescript": true,
+    //     "golang": true
+    // }
+}
