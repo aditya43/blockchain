@@ -62,6 +62,14 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - There are 2 types of Assets viz. `Tangible Assets` and `Intangible Assets`
             * **Tangible Assets**: Tangible assets are typically physical assets or properties owned by a company. For e.g. Computer equipment. Tangible assets are the main type of assets that companies use to produce their product and service.
             * **Intangible Assets**: Intangible Assets don't exists physically, yet they have a monetory value since they represent potential revenue. For e.g. stock, bond, copyright of a song. The record company that owns the copyright would get paid a royalty each time the song is played.
+    * **Chaincode**:
+        - Chaincode contains the smart contracts.
+        - Many times chaincodes and smart contracts are used interchangeably because in most cases they mean exactly the same.
+        - Chaincode defines the asset and also enforces rules for interacting with the asset or any other information that is stored on the distributed ledger.
+        - Chaincode functions execute against the ledger's current state database and are initiated through transaction proposals.
+        - Chaincode execution results in a set of key-value pairs which are also called a `Right Set`.
+        - `Right Set` can be submitted to the network and thereby append to the ledger.
+        - Chaincode execution is partitioned from transaction ordering, limiting the required level of trust and verification across node types, and optimizing network scalability and performance.
 
 -----------
 
