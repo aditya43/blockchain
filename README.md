@@ -177,6 +177,24 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
                     * **Previous Block Header Hash**: Hash from the previous `Block Header`.
                 - **Block Data**: Contains list of transactions arranged in order.
                 - **Block Meta-Data**: Contains certificate and the signature of the block creato which is used to verify the block.
+- **Orderer**:
+    * Orders transactions into blocks.
+    * Maintains list of Organizations that can create channels. This list of Organizations is called the `Consortium`. Also, this list is stored in a `System Channel` (Channel for the Orderers).
+    * Enforce access control for channels (Application Channels). This way they can restric user from Reading and Writing on a Channel.
+    * Manage structure of the blocks.
+    * We can tweak the structure of the blocks by setting the `BatchSize` and `BatchTimeout` parameters.
+        - **BatchSize**: Maximum transaction count in one block.
+        - **BatchTimeout**: Maximum time for a new block creation. This time is measured from the first transaction received in this new block.
+    * Ordering service implementations:
+        - Kafka (Deprecated since Fabric v2)
+        - Solo (Deprecated since Fabric v2)
+        - **Raft (Recommended)**: It is a `Crash Fault Tolerant (CFT)` ordering service. It implements `Leader-Follower` model.
+    * It is better to have multiple Orderer nodes that are owned by different Organizations. This way we make sure that even the ownership is decentralized.
+    * **`Raft` is a protocol for implementing distributed `Consensus`**.
+    * In `Raft` there are 2 `timeout` settings which control the elections:
+        - **Heartbeat Timeout**
+        - **Election Timeout**
+    * **Raft Election Process**: It's the amount of time a `Follower` waits until becoming a `Candidate`. After `Election Timeout`, the `Follower` becomes a `Candidate` and starts a new election term, votes for itself and sends out `Request Vote` messages to other nodes. If the receiving node hasn't voted yet in this term then it votes for the `Candidate` and the node resets it's `Election Timeout`. Once the `Candidate` has a majority of votes, it becomes a `Leader`. The `Leader` begins sending out `Append Entries` messages to it's `Followers`. These messages are sent in intervals specified by the `heartbeat timeout`. Followers then respond to each `Append Entries` message. This election term will continue until a follower stops receiving heartbeats and becomes a candidate. If 2 nodes become candidate at the same time then a split vote can occur. Once we have a leader elected, we need to replicate all changes to our system to all nodes. This is done by using the same `Append Entries` message that was used for `heartbeats`. Raft can even stay consistent in the face of network partitions.
 
 -----------
 
