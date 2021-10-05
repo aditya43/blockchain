@@ -27,6 +27,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Identities
     + Policies
     + Peer
+    + Ledger
+    + Orderer
     ```
 - [Blockchain](#blockchain)
   - [Author](#author)
@@ -152,6 +154,29 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
             * `Orderer` receives `Endorsed` transactions and then creates the blocks.
         - Step #3: `Validation` and `Commit` of the transaction.
             * When `Peer` receives a new block from the `Orderer`, the `Peer` processes the block resulting in a new block being added to the `Ledger`.
+- **Ledger**:
+    * On the ledger, we are recording facts about current state of the object.
+    * Change history in ledger is immutable.
+    * In Fabric, ledger consists of 2 parts:
+        - **`World State`**:
+            * It is a database that holds the current value of the object.
+            * It can change frequently.
+        - **`Blockchain`**:
+            * It records all the transactions for the object that together results in a `Current World State`.
+            * Transactions are collected inside blocks that are appended to the blockchain.
+            * Blockchain data structure is very different from `World State`. It's immutable.
+            * Blockchain does not use a database.
+            * Blockchain is implemented as a file. The reason for this is because there are just few operations done on a Blockchain.
+            * Primary operations of a Blockchain is to append data to it. And a file is perfect for that.
+            * First block is called the `Genesis Block`. It does not contain transaction data. It contains configuration of a initial state of a network channel.
+            * Blocks are connected together with the `Header` of a block.
+            * Each block in blockchain has following structure:
+                - **Block Header**: Contains following parts:
+                    * **Block Number**: Integer starting at `0` (`Genesis Block`), and increased by 1 for each new block.
+                    * **Current Block Hash**: Hash of all the transactions contained in the current block.
+                    * **Previous Block Header Hash**: Hash from the previous `Block Header`.
+                - **Block Data**: Contains list of transactions arranged in order.
+                - **Block Meta-Data**: Contains certificate and the signature of the block creato which is used to verify the block.
 
 -----------
 
