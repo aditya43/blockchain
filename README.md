@@ -98,6 +98,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Public and Private Keys
         - Certificate Authorities
         - Certificate Revocation Lists
+    * **`MSP`** - For a member to have an access to the network, we need 4 things:
+        - Have an identity issued by a CA that is trusted by the network.
+        - Become member of an organization that is recognized and approved by the network members.
+        - Add the `MSP` to either a consortium on the network or a channel.
+        - Ensure the `MSP` is included in the policy definitions on the network.
 
 -----------
 
