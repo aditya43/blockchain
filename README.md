@@ -103,6 +103,21 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Become member of an organization that is recognized and approved by the network members.
         - Add the `MSP` to either a consortium on the network or a channel.
         - Ensure the `MSP` is included in the policy definitions on the network.
+- **Policies**:
+    - A policy is a set of rules that can define how a decision is made.
+    - Policies describe a who and a what.
+    - In Hyperledger, `Policies` are used for infrastructure management.
+    - Uses of `Policies` in Hyperledger network:
+        * Adding/Removing members from channel.
+        * Change the structure of blocks.
+        * Specify count of organizations for endorsement of transactions
+    - How do we write `Policy` in Fabric:
+        * **Signature Policies**:
+            - Turns verifiable identities into members of a blockchain network.
+            - `<OR | AND | NOutOf>`
+        * **ImplicitMeta Policies**:
+            - Only used for channel configuration.
+            - `<ANY | ALL | MAJORITY>`
 
 -----------
 
