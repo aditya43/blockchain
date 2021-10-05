@@ -18,13 +18,26 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     ```diff
     + Blockchain
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
+        - Assets
+        - Chaincode/Smart Contracts
+        - Ledger
+        - Privacy
+        - Security And Membership Services
+        - Consensus
     + Identities
     + Policies
     + Peer
     ```
-- [Blockchain Technology Benefits](#blockchain-technology-benefits)
-- [Smart Contracts](#smart-contracts)
-- [Development Environment Setup](#development-environment-setup)
+- [Blockchain](#blockchain)
+  - [Author](#author)
+  - [Current Status](#current-status)
+  - [License](#license)
+  - [Important Notes](#important-notes)
+  - [Blockchain Basics](#blockchain-basics)
+  - [Key Concepts](#key-concepts)
+  - [Blockchain Technology Benefits](#blockchain-technology-benefits)
+  - [Smart Contracts](#smart-contracts)
+  - [Development Environment Setup](#development-environment-setup)
 
 -----------
 
@@ -65,7 +78,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - There are 2 types of Assets viz. `Tangible Assets` and `Intangible Assets`
             * **Tangible Assets**: Tangible assets are typically physical assets or properties owned by a company. For e.g. Computer equipment. Tangible assets are the main type of assets that companies use to produce their product and service.
             * **Intangible Assets**: Intangible Assets don't exists physically, yet they have a monetory value since they represent potential revenue. For e.g. stock, bond, copyright of a song. The record company that owns the copyright would get paid a royalty each time the song is played.
-    * **Chaincode**:
+    * **Chaincode/Smart Contracts**:
         - Chaincode contains the smart contracts.
         - Many times chaincodes and smart contracts are used interchangeably because in most cases they mean exactly the same.
         - Chaincode defines the asset and also enforces rules for interacting with the asset or any other information that is stored on the distributed ledger.
@@ -73,9 +86,13 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Chaincode execution results in a set of key-value pairs which are also called a `Right Set`.
         - `Right Set` can be submitted to the network and thereby append to the ledger.
         - Chaincode execution is partitioned from transaction ordering, limiting the required level of trust and verification across node types, and optimizing network scalability and performance.
+        - Chaincode or Smart Contracts define all the business logic.
+        - Chaincode/Smart Contracts are stored on `Peer` nodes.
     * **Ledger**:
         - Ledger contains all of the state mutations or transactions. These state changes are produced by the invocation of chaincode.
         - The immutable, shared ledger encodes the entire transaction history for each channel, and includes SQL-like query capability for efficient auditing and dispute resolution.
+        - Ledgers store all of the data.
+        - Ledgers are stored on `Peer` nodes.
     * **Privacy**:
         - Channels and private data collections enable private and confidential multi-lateral transactions that are usually required by competing businesses and regulated industries that exchange assets on a common network.
     * **Security And Membership Services**:
@@ -107,21 +124,34 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Add the `MSP` to either a consortium on the network or a channel.
         - Ensure the `MSP` is included in the policy definitions on the network.
 - **Policies**:
-    - A policy is a set of rules that can define how a decision is made.
-    - Policies describe a who and a what.
-    - In Hyperledger, `Policies` are used for infrastructure management.
-    - Uses of `Policies` in Hyperledger network:
-        * Adding/Removing members from channel.
-        * Change the structure of blocks.
-        * Specify count of organizations for endorsement of transactions
-    - How do we write `Policy` in Fabric:
-        * **Signature Policies**:
+    * A policy is a set of rules that can define how a decision is made.
+    * Policies describe a who and a what.
+    * In Hyperledger, `Policies` are used for infrastructure management.
+    * Uses of `Policies` in Hyperledger network:
+        - Adding/Removing members from channel.
+        - Change the structure of blocks.
+        - Specify count of organizations for endorsement of transactions
+    * How do we write `Policy` in Fabric:
+        - **Signature Policies**:
             - Turns verifiable identities into members of a blockchain network.
             - `<OR | AND | NOutOf>`
-        * **ImplicitMeta Policies**:
+        - **ImplicitMeta Policies**:
             - Only used for channel configuration.
             - `<ANY | ALL | MAJORITY>`
 - **Peer**:
+    * `Chaincodes/Smart Contracts` and `Ledgers` are stored on `Peer` nodes that are owned by `Organizations` inside the network.
+    * `Peer` nodes can host multiple instances of `Chaincodes` and `Ledgers`.
+    * End-users communicate with the network by using applications that connect to the `Peer` nodes of their `Organization`.
+    * `Peers` use `Channels` to interact with other network components.
+    * All `Peers` belong to `Organizations`.
+    * `Peers` have an `Identity` assigned to them via a digital certificate (`x.509`).
+    * Single Peer itself cannot update information stored in ledger on it. Updating requires a consent of other Peers in network. The update transaction is done in 3 steps:
+        - Step #1: `Proposal`.
+            * Independently executed by `Peers` and returns `Endorse Proposal` responses.
+        - Step #2: `Ordering` and `Packaging` transactions into blocks.
+            * `Orderer` receives `Endorsed` transactions and then creates the blocks.
+        - Step #3: `Validation` and `Commit` of the transaction.
+            * When `Peer` receives a new block from the `Orderer`, the `Peer` processes the block resulting in a new block being added to the `Ledger`.
 
 -----------
 
