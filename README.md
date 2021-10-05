@@ -1,5 +1,5 @@
 # Blockchain
-Blockchain, Hyperledger Fabric, Chain Code, Smart Contracts, Golang, CouchDB etc. My personal notes, example codes, best practices and sample projects.
+My personal notes, example codes, best practices and sample projects.
 
 ## Author
 Aditya Hajare ([Linkedin](https://in.linkedin.com/in/aditya-hajare)).
