@@ -83,6 +83,21 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * **Consensus**:
         - At a very high level, we can say Consensus Model has something to do with multiple participants agreeing on something.
         - A unique approch to Consensus enables the flexibility and scalability needed for the enterprise.
+- **Identities**:
+    * Every actor in a network has a digital identity. It is represented by `X-509` certificate.
+    * Identities determine resources and access to information for actors.
+    * This determination is done based on attribute called `Principals` in certificate.
+    * The identity with attribute are called `Principals`. We can think of a `Principal` as some sort of a userid.
+    * Identities are created by a trusted **`Certificate Authority`**. In fabric, we can use a `Certificate Authority`.
+    * The process of handing out certificates is called **`PKI` (Public Key Infrastructure)**. `PKI` provides a secure way of communication.
+    * Just having certificate is not enough for any actor. We also need the network to acknowledge the certificate. For e.g. we need organization to say - "Yes this certificate belongs to my organization". The `Identity` must be registered in the organization's **`MSP` (Membership Service Provider)**.
+    * **`MSP` (Membership Service Provider)** turns verifiable identities into members of the blockchain network.
+    * **`PKI` (Public Key Infrastructure)** is a collection of internet technologies that provides secure communication in the network.
+    * **`PKI` (Public Key Infrastructure)**:
+        - Digital Certificates
+        - Public and Private Keys
+        - Certificate Authorities
+        - Certificate Revocation Lists
 
 -----------
 
