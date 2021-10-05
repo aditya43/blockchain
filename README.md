@@ -18,6 +18,9 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     ```diff
     + Blockchain
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
+    + Identities
+    + Policies
+    + Peer
     ```
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
 - [Smart Contracts](#smart-contracts)
@@ -118,6 +121,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         * **ImplicitMeta Policies**:
             - Only used for channel configuration.
             - `<ANY | ALL | MAJORITY>`
+- **Peer**:
 
 -----------
 
