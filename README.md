@@ -29,6 +29,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Peer
     + Ledger
     + Orderer
+    + Channels
     ```
 - [Blockchain](#blockchain)
   - [Author](#author)
@@ -195,6 +196,14 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - **Heartbeat Timeout**
         - **Election Timeout**
     * **Raft Election Process**: It's the amount of time a `Follower` waits until becoming a `Candidate`. After `Election Timeout`, the `Follower` becomes a `Candidate` and starts a new election term, votes for itself and sends out `Request Vote` messages to other nodes. If the receiving node hasn't voted yet in this term then it votes for the `Candidate` and the node resets it's `Election Timeout`. Once the `Candidate` has a majority of votes, it becomes a `Leader`. The `Leader` begins sending out `Append Entries` messages to it's `Followers`. These messages are sent in intervals specified by the `heartbeat timeout`. Followers then respond to each `Append Entries` message. This election term will continue until a follower stops receiving heartbeats and becomes a candidate. If 2 nodes become candidate at the same time then a split vote can occur. Once we have a leader elected, we need to replicate all changes to our system to all nodes. This is done by using the same `Append Entries` message that was used for `heartbeats`. Raft can even stay consistent in the face of network partitions.
+- **Channels**:
+    * `Channels` are created by creating the first `Transaction` and submitting the `Transaction` to the `Ordering Service`. This `Channel` creation `Transaction` specifies the initial configuration of the `Channel` and it is used by the `Ordering Service` to write the `Channels Genesis Block`.
+    * We can use `Configtxgen` tool to create the first `Transaction` which will end up creating `Channel` and writing `Genesis Block` on that `Channel`.
+    * The `Configtxgen` tool works by reading the `network/configtx/configtx.yaml` file which holds all of the configurations for the `Channel`. This file uses `Channel Profiles`.
+    * `Configtxgen`:
+        - Reads from the `network/configtx/configtx.yaml` file.
+        - Can create a `Configuration Transaction` for the `Application Channel`.
+        - Can create a `Genesis Block` for the `System Channel`.
 
 -----------
 
