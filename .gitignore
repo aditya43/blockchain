@@ -16,3 +16,5 @@
 
 Playground/
 .vagrant
+**/logs
+**/log.txt
