@@ -30,5 +30,4 @@ cryptogen generate --config=./organizations/cryptogen/crypto-config-orderer.yaml
 export FABRIC_CFG_PATH=$PWD/configtx/
 
 # create the genesis block
-# configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
-configtxgen -profile TwoOrgsApplicationGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
