@@ -2,7 +2,7 @@
 cd ~
 
 # download the package
-curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.4 1.5.2
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.0 1.4.7
 
 # move to the samples that we downloaded
 cd ~/fabric-samples
