@@ -32,16 +32,17 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Channels
     ```
 - [Blockchain](#blockchain)
-  - [Author](#author)
-  - [Current Status](#current-status)
-  - [License](#license)
-  - [Important Notes](#important-notes)
-  - [Blockchain Basics](#blockchain-basics)
-  - [Key Concepts](#key-concepts)
-  - [Blockchain Technology Benefits](#blockchain-technology-benefits)
-  - [Smart Contracts](#smart-contracts)
-  - [Development Environment Setup](#development-environment-setup)
-  - [CouchDB](#couchdb)
+- [Author](#author)
+- [Current Status](#current-status)
+- [License](#license)
+- [Important Notes](#important-notes)
+- [Blockchain Basics](#blockchain-basics)
+- [Key Concepts](#key-concepts)
+- [Blockchain Technology Benefits](#blockchain-technology-benefits)
+- [Smart Contracts](#smart-contracts)
+- [Development Environment Setup](#development-environment-setup)
+- [CouchDB](#couchdb)
+- [Common Errors](#common-errors)
 
 -----------
 
@@ -360,3 +361,15 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * We can write more complicated queries for retrieving specific data.
     * We can use `Indexes` for more efficient querying at larger data sets.
 - We need to decide which database we will be using as a State Database before setting up the network. Otherwise, we have to bring down the network, enable CouchDB and bring the network up again.
+
+-----------
+
+## Common Errors
+- Error:
+```sh
+zsh: ./networkdown.sh: bad interpreter: /bin/bash^M: no such file or directory
+```
+- Solution:
+```sh
+sed -i -e 's/\r$//' networkdown.sh
+```
