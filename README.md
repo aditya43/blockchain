@@ -41,6 +41,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
   - [Blockchain Technology Benefits](#blockchain-technology-benefits)
   - [Smart Contracts](#smart-contracts)
   - [Development Environment Setup](#development-environment-setup)
+  - [CouchDB](#couchdb)
 
 -----------
 
@@ -345,3 +346,17 @@ ssh vagrant@192.168.33.10 -i "C:/Aditya/Projects/HLF/.vagrant/machines/default/v
 # In vagrant ssh, execute:
 export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 ```
+
+-----------
+
+## CouchDB
+- We can use CouchDB as out `State Database`.
+- `Ledger` contains a `Blockchain` and a `State Database`. Blockchain is implemented as a file and a State Database is implemented as a database.
+- By default, we use a `Go Level Database` and this database is implemented in the `Peer` node.
+- `LevelDB` stores `Chain Code` data as `key-value` pairs. It supports queries based on `key`, `key range` and `composite key`.
+- As an alternative `LevelDB`, we can use `CouchDB` as a `State Database` of the `Ledger`.
+- **With CouchDB**:
+    * We can store data as `JSON` objects.
+    * We can write more complicated queries for retrieving specific data.
+    * We can use `Indexes` for more efficient querying at larger data sets.
+- We need to decide which database we will be using as a State Database before setting up the network. Otherwise, we have to bring down the network, enable CouchDB and bring the network up again.
