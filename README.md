@@ -377,7 +377,15 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 - The Private data cannot be shared with the `Ordering` service.
 - The Private data is stored on a separate database. Nothing is stored in the `State Database`.
 - Peers that don't have access to the Private Data Collections, don't have any data on their Peer node.
-- `Gossip Protocol` is used for communication between `Peer` nodes. This is a reason why we need to connect at least one `Peer` node of the `Organization` to the `Channel` as an `Anchor Peer`. Because of this, `Peers` know of each other's existence.
+- `Gossip Protocol` is used for communication between `Peer` nodes. This is a reason why we need to connect at least one `Peer` node of the `Organization` to the `Channel` as an `Anchor Peer`. Because of this, `Peers` know of each other's existence. Thats how we implement Peer to Peer communication using `Gossip Protocol`.
+- What can we do with `PDC (Private Data Collection)`:
+    * Use a corresponding public key for tracking public state.
+    * Chaincode access control.
+    * Sharing private data out of band.
+    * Sharing private data with other collections.
+    * Transferring private data to other collections.
+    * Using private data for transaction approval.
+    * Keeping transactors private.
 
 -----------
 
