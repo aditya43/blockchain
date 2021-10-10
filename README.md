@@ -42,6 +42,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Smart Contracts](#smart-contracts)
 - [Development Environment Setup](#development-environment-setup)
 - [CouchDB](#couchdb)
+- [Private Data Collections](#private-data-collections)
 - [Common Errors](#common-errors)
 
 -----------
@@ -99,7 +100,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Ledgers store all of the data.
         - Ledgers are stored on `Peer` nodes.
     * **Privacy**:
-        - Channels and private data collections enable private and confidential multi-lateral transactions that are usually required by competing businesses and regulated industries that exchange assets on a common network.
+        - Channels and Private Data Collections enable private and confidential multi-lateral transactions that are usually required by competing businesses and regulated industries that exchange assets on a common network.
     * **Security And Membership Services**:
         - In Fabric Network, all participants have known identities.
         - Public key infrastructure is used to generate cryptographic cenrtificates. These certificates can be tied to an organization, a network component, a user or a client application. These certificates can be used to manage data access control.
@@ -361,6 +362,22 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * We can write more complicated queries for retrieving specific data.
     * We can use `Indexes` for more efficient querying at larger data sets.
 - We need to decide which database we will be using as a State Database before setting up the network. Otherwise, we have to bring down the network, enable CouchDB and bring the network up again.
+
+-----------
+
+## Private Data Collections
+- There are 3 levels of data privacy:
+    * Channels
+    * Private Data Collections
+    * Encryption
+- `Private Data Collections` can provide privacy for subsets of `Organizations` within a `Channel`.
+- Private data collection consists of:
+    * The private data itself
+    * Hash of the private data
+- The Private data cannot be shared with the `Ordering` service.
+- The Private data is stored on a separate database. Nothing is stored in the `State Database`.
+- Peers that don't have access to the Private Data Collections, don't have any data on their Peer node.
+- `Gossip Protocol` is used for communication between `Peer` nodes. This is a reason why we need to connect at least one `Peer` node of the `Organization` to the `Channel` as an `Anchor Peer`. Because of this, `Peers` know of each other's existence.
 
 -----------
 
