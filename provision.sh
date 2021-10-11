@@ -37,6 +37,8 @@ install_golang(){
 install_node(){
     curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     sudo apt install nodejs -y
+    npm config rm proxy
+    npm config rm https-proxy
 }
 
 # install zsh
