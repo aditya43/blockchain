@@ -18,3 +18,5 @@ Playground/
 .vagrant
 **/logs
 **/log.txt
+**/node_modules
+**/package-lock.json
