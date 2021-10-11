@@ -1,5 +1,5 @@
 const FabricCAServices = require('fabric-ca-client');
-const {Wallets, Wallet} = require('fabric-network');
+const {Wallets} = require('fabric-network');
 
 const fs = require('fs');
 const path = require('path');
@@ -29,6 +29,8 @@ async function main() {
         const x509Identity = {credentials: {certificate: enrollment.certificate, privateKey: enrollment.key.toBytes()}, mspId: 'Org1MSP', type: 'X.509'};
 
         await wallet.put('appUser', x509Identity);
+
+        console.log('Success!');
     } catch (e) {
         console.error(`Error: ${e}`);
         process.exit(1);

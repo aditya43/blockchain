@@ -1,5 +1,5 @@
 const FabricCAServices = require('fabric-ca-client');
-const {Wallets, Wallet} = require('fabric-network');
+const {Wallets} = require('fabric-network');
 
 const fs = require('fs');
 const path = require('path');
