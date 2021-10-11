@@ -14,12 +14,21 @@ async function main() {
         const wallet = await Wallets.newFileSystemWallet(walletPath);
 
         // Create gateway
-        // Create network object
-        // Create contract object
-        // Invoke
-        // Disconnect from gateway
+        const gateway = new Gateway();
+        await gateway.connect(ccp, {wallet, identity: 'appUser', discovery: {enabled: true, asLocalhost: true}});
 
-        await wallet.put('admin', x509Identity);
+        // Create network object
+        const network = await gateway.getNetwork('channel1');
+
+        // Create contract object
+        const contract = network.getContract('fabcar');
+
+        // Invoke
+        await contract.submitTransaction('createCar', 'JEEP-COMPASS-LE', 'Jeep', 'Jeep-Compass', 'Black', 'Aditya');
+
+        // Disconnect from gateway
+        await gateway.disconnect();
+
         console.log('Success!');
     } catch (e) {
         console.error(`Error: ${e}`);
