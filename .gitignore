@@ -20,6 +20,6 @@ Playground/
 **/log.txt
 **/node_modules
 **/package-lock.json
-**/06-Chaincode-Basics/go/
+**/06-Todo-CRUD-Chaincode/go/
 **/pkg/
 **/vendor/
