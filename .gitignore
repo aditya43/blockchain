@@ -21,3 +21,4 @@ Playground/
 **/node_modules
 **/package-lock.json
 **/06-Chaincode-Basics/go/
+**/pkg/
