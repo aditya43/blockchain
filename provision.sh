@@ -29,7 +29,7 @@ install_docker(){
 }
 # install golang
 install_golang(){
-    curl -o "go.tar.gz" https://storage.googleapis.com/golang/go1.17.1.linux-amd64.tar.gz
+    curl -o "go.tar.gz" https://storage.googleapis.com/golang/go1.17.2.linux-amd64.tar.gz
     sudo chmod +x go.tar.gz
     sudo tar -C /home/vagrant/mount -xzf "go.tar.gz"
 }
@@ -83,5 +83,6 @@ configure_zsh
 sudo touch "$HOME/.bashrc"
 {
     echo "export PATH=$PATH:/home/vagrant/mount/go/bin"
+    echo 'export GOPATH="/home/vagrant/mount/chaincode"'
     echo "zsh"
 } >> "$HOME/.bashrc"
