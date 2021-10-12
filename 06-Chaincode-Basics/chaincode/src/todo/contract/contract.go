@@ -13,22 +13,25 @@ type SmartContract struct {
 
 // Business struct
 type Todo struct {
-	ID      string `json:"ID"`
-	Title   string `json:"title"`
-	Done    bool   `json:"done"`
-	Creator string `json:"creator"`
+	ID           string `json:"ID"`
+	Title        string `json:"title"`
+	Done         bool   `json:"done"`
+	Creator      string `json:"creator"`
+	Organization string `json:"organization"`
 }
 
 // Create new todo item
 func (s *SmartContract) Create(ctx contractapi.TransactionContextInterface,
 	id string,
 	title string,
-	creator string) error {
+	creator string,
+	organization string) error {
 	todo := Todo{
-		ID:      id,
-		Title:   title,
-		Done:    false,
-		Creator: creator,
+		ID:           id,
+		Title:        title,
+		Done:         false,
+		Creator:      creator,
+		Organization: organization,
 	}
 
 	todoJSON, err := json.Marshal(todo)
@@ -58,11 +61,13 @@ func (s *SmartContract) Read(ctx contractapi.TransactionContextInterface, id str
 func (s *SmartContract) Update(ctx contractapi.TransactionContextInterface,
 	id string,
 	title string,
-	creator string) error {
+	creator string,
+	organization string) error {
 	todo := Todo{
-		ID:      id,
-		Title:   title,
-		Creator: creator,
+		ID:           id,
+		Title:        title,
+		Creator:      creator,
+		Organization: organization,
 	}
 
 	todoJSON, err := json.Marshal(todo)
