@@ -45,7 +45,30 @@ install_node(){
 install_zsh(){
     sudo apt install zsh -y
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
 
+# install zsh plugins and configure theme
+configure_zsh() {
+    # install zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    # install syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    # install zsh-completions
+    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+    # backup current .zshrc file
+    mv -n ~/.zshrc ~/.zshrc-backup
+
+    touch "$HOME/.zshrc"
+    {
+        echo 'export ZSH="/home/vagrant/.oh-my-zsh"'
+        echo 'ZSH_THEME="agnoster"'
+        echo "plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)"
+        echo "autoload -U compinit && compinit"
+        echo "source ~/.oh-my-zsh/oh-my-zsh.sh"
+        echo "prompt_context() {}"
+    } >> "$HOME/.zshrc"
+
+    source ~/.zshrc
 }
 
 
@@ -55,6 +78,7 @@ install_docker
 install_golang
 install_node
 install_zsh
+configure_zsh
 
 sudo touch "$HOME/.bashrc"
 {
