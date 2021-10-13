@@ -398,3 +398,22 @@ zsh: ./networkdown.sh: bad interpreter: /bin/bash^M: no such file or directory
 ```sh
 sed -i -e 's/\r$//' networkdown.sh
 ```
+-----------
+- Error:
+```sh
+Docker not installed
+# OR
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+```
+- Solution:
+```sh
+# ssh into vagrant box
+vagrant ssh
+
+# snap install docker
+sudo snap install docker
+
+# To fix permission issue
+# Change docker.sock file to be owned by "vagrant" user
+sudo chown vagrant /var/run/docker.sock
+```
