@@ -417,3 +417,18 @@ sudo snap install docker
 # Change docker.sock file to be owned by "vagrant" user
 sudo chown vagrant /var/run/docker.sock
 ```
+-----------
+- Minifabric: How to install, approve, commit and initialize chaincode in a single command?
+```sh
+./minifab install,approve,commit,initialize -n simple -v 2.0 -p '"init","Aditya","35","Nishigandha","30"'
+```
+-----------
+- Minifabric: How to update endorsement policy?
+```sh
+./minifab anchorupdate
+./minifab discover # This will create a folder "discover" at "/vars/discover"
+./minifab channelquery # This will create a channel config file at "/vars/channel1_config.json". Make the changes and save this file.
+
+# Do the channel update to apply new changes
+./minifab channelsign,channelupdate
+```
