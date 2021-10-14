@@ -17,6 +17,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Key Concepts](#key-concepts)
     ```diff
     + Blockchain
+    + Distributed Ledger
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
         - Assets
         - Chaincode/Smart Contracts
@@ -69,6 +70,12 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * **Examples of Public and Permissionless Blockchain**: Bitcoin, Etherium.
     * **Examples of Private and Permissioned Blockchain**: Hyperledger Fabric, JP Morgan.
     * **Cryptocurrencies (Bitcoin, Etherium etc.)**: Cryptocurrency is not same as a blockchain. Cryptocurrency use blockchain to store transactions. Most of the cryptocurrencies use their own type of blockchain with some aspects that make them unique and best for their own usecase.
+- **Distributed Ledger**:
+    * `Distributed Ledger` platforms are used for tracking the `State` of an `Asset`.
+    * An `Asset` is a digital representation of any real world thing.
+    * So anything in a real world, whether it's a tangible or intangible, that may be digitally represented, can be managed on a `Distributed Ledger`.
+    * Tangible assets examples: Cars, Houses, etc.
+    * Intangible assets examples: Stocks, Bonds, Certificates and any other kind of financial instruments.
 - **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
     * **Assets**:
         - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
