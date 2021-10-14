@@ -19,6 +19,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Blockchain
     + Distributed Ledger
     + Transactions
+    + Chaincode
+    + Client Side API
+    + Arguments Sent To Chaincode
+    + Transaction Flow
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
         - Assets
         - Chaincode/Smart Contracts
@@ -83,6 +87,28 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * `Chaincode` encapsulates the business logic.
     * All `Transactions` are recorded in the `Ledger`.
     * The recorded `Transactions` are immutable. i.e. they cannot be updated or deleted.
+- **Chaincode**:
+    * `Chaincode` implements the business logic and exposes the `State` management features by way of one or more functions.
+    * The functions exposed by `Chaincode` are executed from the `Applications` by way of `Transactions`.
+    * Not all of the `Transactions` lead to the creation of entry in `Ledger`. Some `Transactions` are performed to read `State` of an `Asset` in the `Ledger`.
+    * Fabric Chaincode can be developed in `Golang`, `NodeJS` or `Java`.
+- **Client Side API**:
+    * `Chaincode` gets deployed on the `Peer`.
+    * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
+    * There are 2 APIs that are used by the `Applications`.
+        - **Invoke API**: Used for executing the business logic in the `Chaincode` by way of `Transactions`.
+        - **Query API**: Used for reading the `State` of the `Assets` from `Distributed Ledger` platform.
+    * Both `Invoke API` and `Query API` executes the functions exposed by the `Chaincode`.
+- **Arguments Sent To Chaincode**:
+    * The `Client Side API` executes the functions by passing data in JSON format to the `Chaincode`.
+    * The JSON object has a key called `Args`, which is set to an array of string types. The first element in the `Args` array is the `function name` which will be executed by the `Chaincode` in response of this API invocation on the client side. Rest of the arguments in the `Args` array are the parameters passed to the function called by `Chaincode`.
+    ```json
+    {
+        Args: ["FunctionName", "Param1", "Param2", "Param..n"]
+    }
+    ```
+- **Transaction Flow**:
+
 - **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
     * **Assets**:
         - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
