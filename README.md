@@ -31,13 +31,6 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Orderer
     + Channels
     ```
-- [Blockchain](#blockchain)
-- [Author](#author)
-- [Current Status](#current-status)
-- [License](#license)
-- [Important Notes](#important-notes)
-- [Blockchain Basics](#blockchain-basics)
-- [Key Concepts](#key-concepts)
 - [Blockchain Technology Benefits](#blockchain-technology-benefits)
 - [Smart Contracts](#smart-contracts)
 - [Development Environment Setup](#development-environment-setup)
