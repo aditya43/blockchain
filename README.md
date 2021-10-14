@@ -18,6 +18,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     ```diff
     + Blockchain
     + Distributed Ledger
+    + Transactions
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
         - Assets
         - Chaincode/Smart Contracts
@@ -76,6 +77,12 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * So anything in a real world, whether it's a tangible or intangible, that may be digitally represented, can be managed on a `Distributed Ledger`.
     * Tangible assets examples: Cars, Houses, etc.
     * Intangible assets examples: Stocks, Bonds, Certificates and any other kind of financial instruments.
+- **Transactions**:
+    * The state of an `Asset` on the `Distributed Ledger` is managed by the way of `Transactions`. In other words, `Transactions` manages the `States` of an `Asset`.
+    * `Transaction` represents the invocation of business logic that changes or manages the `State` of the `Assets` on the `Distributed Ledger` platform.
+    * `Chaincode` encapsulates the business logic.
+    * All `Transactions` are recorded in the `Ledger`.
+    * The recorded `Transactions` are immutable. i.e. they cannot be updated or deleted.
 - **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
     * **Assets**:
         - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
