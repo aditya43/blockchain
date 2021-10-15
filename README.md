@@ -109,7 +109,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * The JSON object has a key called `Args`, which is set to an array of string types. The first element in the `Args` array is the `function name` which will be executed by the `Chaincode` in response of this API invocation on the client side. Rest of the arguments in the `Args` array are the parameters passed to the function called by `Chaincode`.
     ```json
     {
-        Args: ["FunctionName", "Param1", "Param2", "Param..n"]
+        "Args": ["FunctionName", "Param1", "Param2", "Param..n"]
     }
     ```
 - **Transaction Flow**:
