@@ -93,6 +93,9 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * Not all of the `Transactions` lead to the creation of entry in `Ledger`. Some `Transactions` are performed to read `State` of an `Asset` in the `Ledger`.
     * Fabric Chaincode can be developed in `Golang`, `NodeJS` or `Java`.
     * Any real world asset that can be degitized can be represented as a `Model` in the `Chaincode`.
+    * Each of the chaincode in the network is identified by a name which is unique across `Channel`.
+    * `Instantiation Policy` determines which `Org` can `Endorse` the `Transaction` for creation of the `Chaincode`.
+    * Peers receive the chaincode package in the instantiate transaction and hence the installation of chaincode on peer is automatic: **FALSE**.
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
