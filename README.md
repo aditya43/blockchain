@@ -96,6 +96,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * Each of the chaincode in the network is identified by a name which is unique across `Channel`.
     * `Instantiation Policy` determines which `Org` can `Endorse` the `Transaction` for creation of the `Chaincode`.
     * Peers receive the chaincode package in the instantiate transaction and hence the installation of chaincode on peer is automatic: **FALSE**.
+    * `Shim API` is used for coding the `Chaincode`.
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
