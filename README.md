@@ -92,6 +92,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * The functions exposed by `Chaincode` are executed from the `Applications` by way of `Transactions`.
     * Not all of the `Transactions` lead to the creation of entry in `Ledger`. Some `Transactions` are performed to read `State` of an `Asset` in the `Ledger`.
     * Fabric Chaincode can be developed in `Golang`, `NodeJS` or `Java`.
+    * Any real world asset that can be degitized can be represented as a `Model` in the `Chaincode`.
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
@@ -108,7 +109,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     }
     ```
 - **Transaction Flow**:
-
+    * When client executes an `Invoke` API, the `Transaction Proposal` is created and it is sent to the `Endorsing Peers`. If everything is good with the proposed transaction, the `Endorsing Peers` `Sign` the `Transaction Proposal` and send it back to the client. The client then sends the `Signed Transaction Proposal` to the `Orderer Service` for including the transaction in the `Block`. `Orderer Service` at some point creates the `Block` and sends the `Block` to the `Peers` in the `Network`. Not all of the `Peers` have `Chaincode` installed on them. Those `Peers` will still receive the `Block` sent by `Orderer Service`.
+    * When client executes a `Query` API, any of the `Peer` with a `Chaincode` installed on it, will execute the `Chaincode Function` and return response to the client. In this invocation, the client does not go through the `Orderer Service`.
 - **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
     * **Assets**:
         - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
