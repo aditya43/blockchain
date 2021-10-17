@@ -101,6 +101,12 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - `Orgs` participating in the `transactions`.
         - `Orgs` that will query the `ledgers`.
         - `Chaincode Endorsers`
+    * Important points about `Chaincode`:
+        - `Chaincode` may implement multiple `Smart Contracts`.
+        - `Chaincode` is packaged in standard `Tar` file format.
+        - `Installation` generates the `Package-ID`.
+        - Each `Org` approves the specific `Package` for their `Org`.
+        - `Package-ID` may be different across `Orgs`.
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
