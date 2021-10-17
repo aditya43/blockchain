@@ -97,6 +97,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * `Instantiation Policy` determines which `Org` can `Endorse` the `Transaction` for creation of the `Chaincode`.
     * Peers receive the chaincode package in the instantiate transaction and hence the installation of chaincode on peer is automatic: **FALSE**.
     * `Shim API` is used for coding the `Chaincode`.
+    * Not all `Orgs` need to install `Chaincode`. Following entities has the `Chaincode`:
+        - `Orgs` participating in the `transactions`.
+        - `Orgs` that will query the `ledgers`.
+        - `Chaincode Endorsers`
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
