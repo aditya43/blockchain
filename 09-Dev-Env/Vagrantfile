@@ -6,6 +6,32 @@ $script = <<-SCRIPT
 
 echo "cd /vagrant" >> /home/vagrant/.profile
 echo "cd /vagrant" >> /home/vagrant/.bashrc
+
+sudo apt install curl -y
+sudo apt install git -y
+sudo apt install zsh -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/vagrant/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# install syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/vagrant/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# install zsh-completions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=/home/vagrant/.oh-my-zsh/custom}/plugins/zsh-completions
+# backup current .zshrc file
+mv -n /home/vagrant/.zshrc /home/vagrant/.zshrc-backup
+touch "/home/vagrant/.zshrc"
+{
+    echo 'export ZSH="/home/vagrant/.oh-my-zsh"'
+    echo 'ZSH_THEME="agnoster"'
+    echo "plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)"
+    echo "autoload -U compinit && compinit"
+    echo "source /home/vagrant/.oh-my-zsh/oh-my-zsh.sh"
+    echo "prompt_context() {}"
+} >> "/home/vagrant/.zshrc"
+
+echo "zsh" >> /home/vagrant/.bashrc
+source /home/vagrant/.zshrc
+
 echo "All good!!"
 SCRIPT
 
@@ -49,7 +75,7 @@ Vagrant.configure("2") do |config|
 
     # This gets executed for both vm1 & vm2
     # config.vm.provision "shell", inline:  "echo 'All good'"
-    config.vm.provision "shell", inline:  $script
+    config.vm.provision "shell", inline: $script, privileged: false
 
     # config.vm.provision "shell", run: "always", inline: <<-SHELL
     #   mount --bind  /home/vagrant/app/sdk/node_modules /home/vagrant/app/sdk/vagrant_node_modules
