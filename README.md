@@ -119,6 +119,64 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * Default `Policy` is the `Rule = "MEJORITY Endorsement"`. It means that `More than HALF the members of the network MUST approve the Chaincode definition for it to be committed successfully`.
     * The `Policy` rule `Rule = "ANY Endorsement"` requires `Only one approval for committing the Chaincode`.
     * With the help of `Signature Policy`, we can create complex/flexible expressions.
+- **Peer Launch Modes**:
+    * `Net` mode: `Chaincode` instance launched by `Peer`. This is the **Default** mode.
+        - Used in live network.
+        - Chaincode Logs are written to the container's file system.
+    * `Dev` mode: `Chaincode` instance launched by Developer.
+        - Development time only.
+        - Chaincode Logs are written to the console.
+        - No need to install/upgrade for changes.
+        - To launch `Peer` in `Dev` mode:
+        ```sh
+        # 1. Launch peer in dev mode
+        peer node start --peer-chaincodedev
+        # 2. Install chaincode to Peer
+        # 3. Run chaincode on Terminal/Shell
+        # 4. Instantiate the chaincode to Peer
+        ```
+        - **NOTE:** Chaincode instance is not launched in the Docker container.
+        - Helper scripts:
+        ```sh
+        ##### BOTH COMMANDS USE ENV VARS! #####
+
+        # Builds the Golang chaincode
+        /network/bin/cc-build.sh # go build $CC_PATH
+
+        # Runs the Golang chaincode
+        /network/bin/cc-run.sh # go run $GOPATH/src/$CC_PATH/*.go
+        ```
+        - Example commands:
+        ```sh
+        cd /network/bin/
+
+        # Initialize dev environment in Dev mode.
+        # -d: Dev mode
+        ./dev-init.sh -d
+
+        # Set env vars for "acme" Org
+        source ./set-env.sh acme
+
+        # Check/verify env vars for Org
+        ./set-chain-env.sh
+
+        # Package and install chaincode on Peer
+        # -p: Package chaincode
+        ./chain.sh install -p
+
+        # In new terminal, ssh into vagrant
+
+        # Set Org context in new terminal
+        source set-env.sh acme
+
+        # Start chaincode in Terminal mode
+        cc-run.sh
+
+        # In other terminal, we can run following commands
+        chain.sh instantiate # To instantiate the chaincode
+        chain.sh invoke # To invoke chaincode
+        chain.sh query # To query chaincode
+        ```
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
