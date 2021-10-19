@@ -26,12 +26,12 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Arguments Sent To Chaincode
     + Transaction Flow
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
-        - Assets
-        - Chaincode/Smart Contracts
-        - Ledger
-        - Privacy
-        - Security And Membership Services
-        - Consensus
+      - Assets
+      - Chaincode/Smart Contracts
+      - Ledger
+      - Privacy
+      - Security And Membership Services
+      - Consensus
     + Identities
     + Policies
     + Peer
