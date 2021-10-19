@@ -107,6 +107,18 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - `Installation` generates the `Package-ID`.
         - Each `Org` approves the specific `Package` for their `Org`.
         - `Package-ID` may be different across `Orgs`.
+        - Whenever a `Chaincode` is approved by an `Org`, the `Approval` is added as a `Transaction` into the `Ledger` of that `Org`.
+- **Chaincode Lifecycle Endorsement Policy Rule**:
+    * Network members sets up the `Lifecycle Endorsement Policy`.
+    * It decides:
+        - How many approvals are needed for a commit to be successful.
+        - It may have a rule that says some specific `Organization` must `Endorse` the `Transaction` for it can be committed successfully.
+    * This `Policy` is embedded in the `Channel` `Genesis`.
+    * `Rules` can be updated with `Channel` update transactions.
+    * `Lifecycle Endorsement Policy` can be specified as `ImplicitMeta Policy` or a `Signature Policy`.
+    * Default `Policy` is the `Rule = "MEJORITY Endorsement"`. It means that `More than HALF the members of the network MUST approve the Chaincode definition for it to be committed successfully`.
+    * The `Policy` rule `Rule = "ANY Endorsement"` requires `Only one approval for committing the Chaincode`.
+    * With the help of `Signature Policy`, we can create complex/flexible expressions.
 - **Client Side API**:
     * `Chaincode` gets deployed on the `Peer`.
     * `Applications` use the `Fabric Client SDK` for interacting with the `Chaincode`.
