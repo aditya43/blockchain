@@ -20,6 +20,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Distributed Ledger
     + Transactions
     + Chaincode
+    + Chaincode Lifecycle Endorsement Policy Rule
+    + Peer Launch Modes
     + Client Side API
     + Arguments Sent To Chaincode
     + Transaction Flow
