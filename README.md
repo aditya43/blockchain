@@ -25,6 +25,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Client Side API
     + Arguments Sent To Chaincode
     + Transaction Flow
+    + Chaincode Interface
     + The Fabric Model: What makes fabric ideal as an enterprise blockchain solution?
       - Assets
       - Chaincode/Smart Contracts
@@ -197,6 +198,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - **Transaction Flow**:
     * When client executes an `Invoke` API, the `Transaction Proposal` is created and it is sent to the `Endorsing Peers`. If everything is good with the proposed transaction, the `Endorsing Peers` `Sign` the `Transaction Proposal` and send it back to the client. The client then sends the `Signed Transaction Proposal` to the `Orderer Service` for including the transaction in the `Block`. `Orderer Service` at some point creates the `Block` and sends the `Block` to the `Peers` in the `Network`. Not all of the `Peers` have `Chaincode` installed on them. Those `Peers` will still receive the `Block` sent by `Orderer Service`.
     * When client executes a `Query` API, any of the `Peer` with a `Chaincode` installed on it, will execute the `Chaincode Function` and return response to the client. In this invocation, the client does not go through the `Orderer Service`.
+- **Chaincode Interface**:
+    * All Golang `Chaincode` must implement following 3 functions:
+        - `Init()`: Chaincode initialization logic. Called with `invoke --is-init` flag.
+        - `Invoke()`: Contains business logic. Executed on `Query` and `Invoke [Without init flag]`.
+        - `main()`: Registers chaincode with the fabric runtime.
 - **The Fabric Model**: What makes fabric ideal as an enterprise blockchain solution?
     * **Assets**:
         - Asset definitions enable the exchange of almost anything with monetory value over the network. For e.g. Whole foods, antique cars, currency features, bonds, stocks, digital goods etc.
