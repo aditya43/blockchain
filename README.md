@@ -111,6 +111,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Each `Org` approves the specific `Package` for their `Org`.
         - `Package-ID` may be different across `Orgs`.
         - Whenever a `Chaincode` is approved by an `Org`, the `Approval` is added as a `Transaction` into the `Ledger` of that `Org`.
+    * By default `State Data` is setup in `LevelDB` but we can configure `Peer` to store `State Data` in `CouchDB` instead of `LevelDB`.
+    * `CouchDB` is a `NoSQL` database which can be setup as a `State Data` store for `Peer` node.
+    * `CouchDB` allows to execute rich queries against `State Data` whereas `LevelDB` doesn't allow it.
+    * Each `Chaincode` owns the `State Data` it manages.
+    * Direct access to `State Data` from one `Chaincode` to another is not allowed. However, `Chaincode` can `Invoke` or `Query` other `Chaincode` to access it's `State Data`.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
