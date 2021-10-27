@@ -1,12 +1,10 @@
 /**
- * Solution to challenge exercise
- * ==============================
  * This code demonstrates how to invoke chaincode using client & channel
- * 
+ *
  * The code is "Highly Simplified" to make it easy to read - no promises used deliberately :)
- * 
+ *
  * THIS IS NOT PRODUCTION READY CODE
- * 
+ *
  * + As there is NO error checks
  * + As the timeout not implemented i.e., indefinite wait if commit event not received
  */
@@ -22,7 +20,7 @@ const ACME_CLIENT_CONNECTION_PROFILE_PATH = '../profiles/acme-client.yaml'
 
 // Org & User
 const ORG_NAME = 'acme'
-const USER_NAME = 'Admin'   
+const USER_NAME = 'Admin'
 const PEER_NAME = 'acme-peer1.acme.com'
 const CHANNEL_NAME = 'airlinechannel'
 
@@ -49,7 +47,7 @@ async function main(){
 
 async function  invokeChaincode() {
 
-    // Get the peer for channel. 
+    // Get the peer for channel.
     let peerName = channel.getChannelPeer(PEER_NAME)
 
     // Create a transaction ID
@@ -120,14 +118,14 @@ async function  invokeChaincode() {
 
 /**
  * Setup the transaction listener
- * 
+ *
  * #5. Print message in call back of event listener
  */
 function setupTxListener(tx_id_string){
 
     // 1. Get the event hub for the named peer
     let event_hub = channel.getChannelEventHub(PEER_NAME);
-    
+
     // PHASE-3 of Transaction Flow
     // 2. Register the TX Listener
     event_hub.registerTxEvent(tx_id_string, (tx, code, block_num) => {
@@ -143,7 +141,7 @@ function setupTxListener(tx_id_string){
         } else {
             console.log('\tThe invoke chaincode transaction was VALID.');
         }
-    }, 
+    },
     // 3. Callback for errors
     (err) => {
         console.log(err);
