@@ -1,0 +1,21 @@
+# Sample YAML for client config
+name: "Budget Client"
+version: "1.0"
+description: "Client section for Budget"
+
+# Client section describes the client
+client:
+  # Org name
+  organization: budget
+  # User context storage
+  credentialStore:
+    # State
+    path: "./credstore/budget/hfc-kvs"
+    # Public & Private key
+    cryptoStore:
+      path: "./credstore/budget/hfc-cvs"
+
+  #GRPC options
+  connection:
+    options:
+      grpc.keepalive_time_ms: 120000
