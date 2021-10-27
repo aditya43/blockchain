@@ -1,0 +1,12 @@
+# Sample YAML for client config
+name: "Acme Client"
+version: "1.0"
+client:
+  organization: Acme
+  credentialStore:
+    path: "./credstore/acme/hfc-kvs"
+    cryptoStore:
+      path: "./credstore/acme/hfc-cvs"
+  connection:
+    options:
+      grpc.keepalive_time_ms: 120000
