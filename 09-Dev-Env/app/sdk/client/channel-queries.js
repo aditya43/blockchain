@@ -33,7 +33,7 @@ async function main() {
 
     // Setup the channel instance
     channel = await setupChannel()
- 
+
     // Print the info for the chain
     await getChannelInfo()
 
@@ -49,7 +49,7 @@ async function getChannelInfo() {
 
     // Gets the info on the blockchain
     let info = await channel.queryInfo()
-  
+
     const blockHeight = parseInt(info.height.low);
     console.log(`Current Chain Height: ${blockHeight}\n`)
 
@@ -62,11 +62,11 @@ async function getChannelInfo() {
     // Get the latest block
     let block = await channel.queryBlock(blockHeight - 1)
     printBlockInfo(block)
-     
+
     // Get the previous block with hash from latest block
     block = await channel.queryBlock(blockHeight - 2)
     printBlockInfo(block)
-   
+
 }
 
 /**
@@ -154,7 +154,7 @@ async function setupClient() {
 
 /**
  * Prints information in the block
- * @param {*} block 
+ * @param {*} block
  */
 function printBlockInfo(block) {
     console.log('Block Number: ' + block.header.number);
@@ -174,7 +174,7 @@ function printBlockInfo(block) {
 
 /**
  * Used for calculating hash for block received with channel.queryBlock
- * @param {*} header 
+ * @param {*} header
  */
 function calculateBlockHash(header) {
     let headerAsn = asn.define('headerAsn', function () {
@@ -202,7 +202,7 @@ function calculateBlockHash(header) {
 
 
 /**
- * Exercise Solution:
+ * Solution:
  */
 async function getGenesis(){
     let genesis = await channel.getGenesisBlock()
