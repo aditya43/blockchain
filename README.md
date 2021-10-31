@@ -131,7 +131,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - **`Subscription` is on `Channel` level**. i.e. `Subscription` requires the specification of the `Channel`.
         - Subscribers can also specify the filter criteria on which the events are evaluated on the `Peer`.
     * There are 3 types of Events:
-        - `Block Events`: This type of Event is emitted by the `Peer` when a new `Block` is added by the `Peer` to the `Ledger`.
+        - `Block Event`: Emitted by the `Peer` when a new `Block` is added by the `Peer` to the `Ledger`.
+        - `Transaction Event`: Emitted by the `Peer` when a specified `Transaction` is received in a `Block`.
+        - `Chaincode Event`: Emitted by the `Chaincode`.
+    * The subscriber can provide the name of the `Event` in which they are interested.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
