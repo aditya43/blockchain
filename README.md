@@ -133,8 +133,10 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * There are 3 types of Events:
         - `Block Event`: Emitted by the `Peer` when a new `Block` is added by the `Peer` to the `Ledger`.
         - `Transaction Event`: Emitted by the `Peer` when a specified `Transaction` is received in a `Block`.
-        - `Chaincode Event`: Emitted by the `Chaincode`.
+        - `Chaincode Event`: Emitted by the `Chaincode`. `Chaincode Events` are generated in response to the `Transactions` against the `Chaincode`.
+    * `Chaincode Events` are not received by the subscriber when the `Chaincode` is executed by the `Endorsers`. The events are received by the subscriber when the `Peer` adds the `Transaction` to the `Ledger`.
     * The subscriber can provide the name of the `Event` in which they are interested.
+    * The `Transaction Event` and `Chaincode Events` are in the `Block` payload.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
