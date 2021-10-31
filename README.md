@@ -20,6 +20,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     + Distributed Ledger
     + Transactions
     + Chaincode
+    + Channel Events
     + Chaincode Lifecycle Endorsement Policy Rule
     + Peer Launch Modes
     + Client Side API
@@ -124,6 +125,13 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - `Transaction` message is passed from the caller `Chaincode` to the called `Chaincode`.
         - On **common** `Channel`: `State` changes take effect for both caller and a called `Chaincode`.
         - On **different** `Channel`: `State` changes take effect only for the caller `Chaincode`.
+- **Channel Events**:
+    * Events are emitted by the `Peers`.
+    * Applications may subscribe to the events.
+        - **`Subscription` is on `Channel` level**. i.e. `Subscription` requires the specification of the `Channel`.
+        - Subscribers can also specify the filter criteria on which the events are evaluated on the `Peer`.
+    * There are 3 types of Events:
+        - `Block Events`: This type of Event is emitted by the `Peer` when a new `Block` is added by the `Peer` to the `Ledger`.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
