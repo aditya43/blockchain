@@ -120,6 +120,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - Since the `Chaincode` is invoked locally, both the `Chaincodes` (caller and the called `Chaincode`) must be on the same `Peer`.
         - `Transaction` executes in the same `Txn` `Context`.
         - `State` changes on both the caller and the called `Chaincode` take effect only if they share a common `Channel`.
+        - No `State` change takes place on the called `Chaincode` if the caller and a called `Chaincodes` are on different `Channels`.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
