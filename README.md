@@ -121,6 +121,9 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         - `Transaction` executes in the same `Txn` `Context`.
         - `State` changes on both the caller and the called `Chaincode` take effect only if they share a common `Channel`.
         - No `State` change takes place on the called `Chaincode` if the caller and a called `Chaincodes` are on different `Channels`.
+        - `Transaction` message is passed from the caller `Chaincode` to the called `Chaincode`.
+        - On **common** `Channel`: `State` changes take effect for both caller and a called `Chaincode`.
+        - On **different** `Channel`: `State` changes take effect only for the caller `Chaincode`.
 - **Chaincode Lifecycle Endorsement Policy Rule**:
     * Network members sets up the `Lifecycle Endorsement Policy`.
     * It decides:
