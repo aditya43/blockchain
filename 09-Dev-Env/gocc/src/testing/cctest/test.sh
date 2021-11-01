@@ -27,3 +27,11 @@ export FABRIC_LOGGING_SPEC='ERROR'
 CC_ORIGINAL_NAME=$CC_NAME
 generate_unique_cc_name
 set-chain-env.sh -n $CC_NAME
+
+
+######## Install & Instantiate the chaincode ######
+# 1. Set the org context
+set_org_context  acme
+
+# 2. Install
+chain_install
