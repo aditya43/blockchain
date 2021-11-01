@@ -13,3 +13,7 @@ source  utest.sh
 # OPTIONAL - override the wait time after instantiate/invoke
 # PS: Low value may lead to endorsement errors
 # export TXN_WAIT_TIME=3s
+
+# 3. Setup the logging spec - error is suggested
+export FABRIC_LOGGING_SPEC='ERROR'
+
