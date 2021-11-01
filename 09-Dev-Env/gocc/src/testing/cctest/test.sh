@@ -17,3 +17,13 @@ source  utest.sh
 # 3. Setup the logging spec - error is suggested
 export FABRIC_LOGGING_SPEC='ERROR'
 
+# 4. Generates a unique name everytime the script is executed
+#    Comment this if you would like to use the same instance of
+#    the chaincode *but* keep in mind that the state may change with every run
+
+# Retain the original chaincode name otherwise it will be replaced by the random name !!
+# Use this to set it back at the end of the test case implementation
+# set-chain-env.sh -n $CC_ORIGINAL_NAME
+CC_ORIGINAL_NAME=$CC_NAME
+generate_unique_cc_name
+set-chain-env.sh -n $CC_NAME
