@@ -35,3 +35,55 @@ set_org_context  acme
 
 # 2. Install
 chain_install
+
+
+# 3. Setup init arguments
+
+# Setup arguments
+CC_CONSTRUCTOR='{"Args":[]}'
+
+# 4. Instantiate
+chain_instantiate
+
+######## Test Case #1 ##################################
+# 1. Start the test case with a description
+set_test_case 'On adding 10 Chaincode should return 110'
+
+# 2. Set the invoke args
+export CC_INVOKE_ARGS='{"Args":["invoke", "add", "10"]}'
+
+# 3. Invoke the chaincode
+chain_invoke
+
+# 4. Setup the Query args
+export CC_QUERY_ARGS='{"Args":["query"]}'
+
+# 5. Execute the query
+chain_query
+print_info  "Query Result = $QUERY_RESULT"
+
+# 6. Assert on equal = 110
+assert_equal  "$QUERY_RESULT"  "110"
+
+######### Test Case #2 ##################################
+# 1. Start the test case with a description
+set_test_case 'On subtracting 20 Chaincode should return 90'
+
+# 2. Set the invoke args
+export CC_INVOKE_ARGS='{"Args":["invoke", "subtract", "20"]}'
+
+# 3. Invoke the chaincode
+chain_invoke
+
+# 4. Setup the Query args
+export CC_QUERY_ARGS='{"Args":["query"]}'
+
+# 5. Execute the query
+chain_query
+print_info  "Query Result = $QUERY_RESULT"
+
+# 6. Assert on equal = 110
+assert_equal  "$QUERY_RESULT"  "90"
+
+# 7. Set the name to original chaincode name
+set-chain-env.sh -n $CC_ORIGINAL_NAME
