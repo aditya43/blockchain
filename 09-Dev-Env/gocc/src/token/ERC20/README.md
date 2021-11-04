@@ -1,4 +1,4 @@
-ERC20 
+ERC20
 =====
 https://theethereum.wiki/w/index.php/ERC20_Token_Standard
 
@@ -14,14 +14,14 @@ Install
 =======
 Install the chaincode on the Acme Peer-1
   .    set-env.sh    acme
-  set-chain-env.sh       -n erc20  -v 1.0   -p  token/ERC20   
+  set-chain-env.sh       -n erc20  -v 1.0   -p  token/ERC20
   chain.sh install -p
 
 Instantiate
 ===========
 Instantiate the chaincode
 
- set-chain-env.sh        -c   '{"Args":["init","ACFT","1000", "A Cloud Fan Token!!!","john"]}'
+ set-chain-env.sh        -c   '{"Args":["init","ACFT","1000", "Aditya Test Token!!!","john"]}'
  chain.sh  instantiate
 
 Query
@@ -48,7 +48,7 @@ Check the balance for 'john' & 'sam'
 Events Testing
 ==============
 Launch the events utility
- events.sh -t chaincode -n erc20 -e transfer -c airlinechannel 
+ events.sh -t chaincode -n erc20 -e transfer -c airlinechannel
 
 In a <<Terminal #2> execute the invoke - observe transfer events in terminal 1
   set-chain-env.sh         -i   '{"Args":["transfer", "john", "sam", "10"]}'
