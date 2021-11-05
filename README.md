@@ -539,6 +539,14 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * Transferring private data to other collections.
     * Using private data for transaction approval.
     * Keeping transactors private.
+- `Members` on the `Channel` can **restrict visibility of data**.
+- `Ledger` is **COMMON** so all `Transactions` are still visible to all.
+- `Transaction` in `Ledger` has `HASH` of data that is stored in `Private Data Collections`.
+- `Private Data Collection` are configured using JSON at the time of `Chaincode` `Instantiate` or `Upgrade`.
+- `Peers` manages `PDC` data in a separate set of datastores.
+- `PDC` are isolated `namespaces` within `Chaincode`.
+- `PDC Key-Values` are accessible within `Chaincode` using `Chaincode Stub API`.
+- `Policies` control read access to the `PDC`.
 
 -----------
 
