@@ -550,6 +550,17 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 
 -----------
 
+## Range Queries
+- Range Queries require `Start Key` and the `End Key`.
+- `Start Key` is included in the result set.
+- `End Key` is exluced in the result set.
+- If `Start Key` and `End Key` are not specified i.e. Empty strings are provided, then result set will have all the Keys from state data set.
+- Keys are indexed in `Lexical Order`.
+- Maximum results returned in result set can be restricted by `Peer Config`.
+- Commonly used functions from Chaincode Stub API for executing range queries are `GetStateByRange()` and `GetPrivateDataByRange()`.
+
+-----------
+
 ## Common Errors
 - Error:
 ```sh
