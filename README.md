@@ -46,6 +46,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Development Environment Setup](#development-environment-setup)
 - [CouchDB](#couchdb)
 - [Private Data Collections](#private-data-collections)
+- [Range Queries](#range-queries)
+- [Rich Queries](#rich-queries)
 - [Common Errors](#common-errors)
 
 -----------
@@ -515,6 +517,7 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * We can write more complicated queries for retrieving specific data.
     * We can use `Indexes` for more efficient querying at larger data sets.
 - We need to decide which database we will be using as a State Database before setting up the network. Otherwise, we have to bring down the network, enable CouchDB and bring the network up again.
+- Each `Peer` has its own instance of the `CouchDB`.
 
 -----------
 
@@ -564,6 +567,24 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * None of the `Key` attribute values in `Composite Key` can contain a `null` character. i.e. `\0x00`
     * When the `PutState` is executed, the index is created in the `state database`.
     * `GetState()` and `GetStateByRange()` functions do not support `Partial Composite Keys`.
+
+-----------
+
+## Rich Queries
+- Requires data to be modeled as `JSON`.
+- `Peers` need to use `CouchDB`.
+- `Indexes` need to be created for performance.
+- Restrictions on CouchDB JSON Documents:
+    * Key cannot begin with underscore `_`.
+    * Fields beginning with underscore `_` are used internally.
+    * `~version` is a reserved field.
+- Rich queries for `CouchDB` are created using **`Mango Queries`** language.
+- `Mango` query language:
+    * Declarative `JSON` query language.
+    * Inspired by `MongoDB` query language.
+    * Adopted by `Cloudant` and `CouchDB`.
+- Rich queries are not executed at the time of `Validation`. This may lead to inconsistent state of chaincode.
+- Do not use `Rich Queries` in `Update Transactions` unless we can guarentee `No Phantom Reads`.
 
 -----------
 
