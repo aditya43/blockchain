@@ -518,6 +518,8 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * We can use `Indexes` for more efficient querying at larger data sets.
 - We need to decide which database we will be using as a State Database before setting up the network. Otherwise, we have to bring down the network, enable CouchDB and bring the network up again.
 - Each `Peer` has its own instance of the `CouchDB`.
+- No data replication at the `CouchDB` level.
+- Remote access is disabled to `CouchDB`.
 
 -----------
 
@@ -584,7 +586,7 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * Inspired by `MongoDB` query language.
     * Adopted by `Cloudant` and `CouchDB`.
 - Rich queries are not executed at the time of `Validation`. This may lead to inconsistent state of chaincode.
-- Do not use `Rich Queries` in `Update Transactions` unless we can guarentee `No Phantom Reads`.
+- Do not use `Rich Queries` in `Update Transactions (Invoke)` unless we can guarentee `No Phantom Reads`.
 
 -----------
 
