@@ -650,6 +650,10 @@ history:
     * `Wallet` is construct that is used for managing these `Identity Profiles`.
     * `Wallet` contains one or more user `Identity Context` and each of these `Identity Context` or `Identity Profiles` have `Certificates`, `Private Key` and a `Public Key`.
     * `Identities` in `Wallet` are referred to by a `Label` which is a free format string and it is unique for each of the `Identities` managed in the `Wallet`.
+    * `Wallet` interface:
+        - `InMemoryWallet`: Manages identities in memory.
+        - `FileSystemWallet`: Manages identities on user's filesystem.
+        - `CouchDBWallet`: Manages identities in a CouchDB Server.
 
 -----------
 
