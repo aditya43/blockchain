@@ -625,6 +625,8 @@ history:
 - For building `Access Control` in `Chaincode`, check the `Client Identity Chaincode Library`: [https://github.com/hyperledger/fabric-chaincode-go/tree/main/pkg/cid](https://github.com/hyperledger/fabric-chaincode-go/tree/main/pkg/cid)
 - Custom `Attributes` are added to the `X509` certificates by the `Registrar`.
 - `Client Identity Chaincode Library` provides access to the `Attributes` or `Identity` set in `X509` certificates.
+- `Cryptogen` tool does not support addition of `Attributes` in the certificates.
+- For additional `Attributes` support in `X509` certificates, the `Identities` need to be setup with a `fabric-ca`.
 
 -----------
 
