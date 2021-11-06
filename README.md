@@ -48,6 +48,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Private Data Collections](#private-data-collections)
 - [Range Queries](#range-queries)
 - [Rich Queries](#rich-queries)
+- [Asset History Logs](#asset-history-logs)
 - [Common Errors](#common-errors)
 
 -----------
@@ -588,6 +589,26 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
     * Adopted by `Cloudant` and `CouchDB`.
 - Rich queries are not executed at the time of `Validation`. This may lead to inconsistent state of chaincode.
 - Do not use `Rich Queries` in `Update Transactions (Invoke)` unless we can guarentee `No Phantom Reads`.
+
+-----------
+
+## Asset History Logs
+- Fabric manages `Assets` in the `Chaincode`.
+- `Invoke Transaction` changes the `State` on per `Key` basis.
+- We can use `Queries` to get the `Current State` of the `Asset`.
+- `Queries` don't provide history of the `Transactions` on specific `Asset`. i.e. `Queries` cannot get the `Past State`. for e.g. List all previous owners of the vehicle with id `Vin#1000`.
+- To get the history of `Transactions` on `Asset`, we use `History Log` and `History API`.
+- `Asset History Log` are managed on per `Peer` basis.
+- `Peers` on which the `Chaincode` needs access to the `History Log` must be configured to `Create` and `Update` these `History Logs`.
+- `Peer` once enabled for managing the `History Logs`, will create the log on per `Chaincode` or per `Asset` basis.
+- `Asset History` on `Peer` is managed in a separate datastore.
+- Regardless of what database is used as `State Database`, the `Asset History` is always managed in `GoLevelDB` database.
+- `History Logs` are setup at `Peer` level. They are not replicated by way of `Gossip`. `Peer` is responsible for managing the `Asset Logs` on it's own.
+- To enable history database, look for following setting in `core.yaml`:
+```yml
+history:
+    enableHistoryDatabase: true
+```
 
 -----------
 
