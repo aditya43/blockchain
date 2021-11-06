@@ -520,6 +520,7 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 - Each `Peer` has its own instance of the `CouchDB`.
 - No data replication at the `CouchDB` level.
 - Remote access is disabled to `CouchDB`.
+- `CouchDB` stores dates in format: `YYYY-MM-DDThh:mm:ss.s`.
 
 -----------
 
