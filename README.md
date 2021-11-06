@@ -558,6 +558,12 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 - Keys are indexed in `Lexical Order`.
 - Maximum results returned in result set can be restricted by `Peer Config`.
 - Commonly used functions from Chaincode Stub API for executing range queries are `GetStateByRange()` and `GetPrivateDataByRange()`.
+- `Composite Key`:
+    * A key formed by combining 2 or more attributes of the record.
+    * Uniqueness is guarenteen only if all parts of the key are used.
+    * None of the `Key` attribute values in `Composite Key` can contain a `null` character. i.e. `\0x00`
+    * When the `PutState` is executed, the index is created in the `state database`.
+    * `GetState()` and `GetStateByRange()` functions do not support `Partial Composite Keys`.
 
 -----------
 
