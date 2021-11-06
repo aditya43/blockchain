@@ -604,11 +604,14 @@ export PATH=/home/vagrant/mount/fabric-samples/bin:$PATH
 - `Asset History` on `Peer` is managed in a separate datastore.
 - Regardless of what database is used as `State Database`, the `Asset History` is always managed in `GoLevelDB` database.
 - `History Logs` are setup at `Peer` level. They are not replicated by way of `Gossip`. `Peer` is responsible for managing the `Asset Logs` on it's own.
+- `History API` is used from within the `Chaincode` to access history.
 - To enable history database, look for following setting in `core.yaml`:
 ```yml
 history:
     enableHistoryDatabase: true
 ```
+- Just like `Rich Query API`, the `History API` is also not re-executed in `Validation` phase of the `Transaction`. This may lead to inconsistent `State` of `Chaincode`.
+- Do not use `History API` in `Update Transactions (Invoke)` unless we can guarentee `No Phantom Reads`.
 
 -----------
 
