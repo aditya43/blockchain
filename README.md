@@ -50,6 +50,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Rich Queries](#rich-queries)
 - [Asset History Logs](#asset-history-logs)
 - [Programmatic Access Control](#programmatic-access-control)
+- [Fabric Node SDK](#fabric-node-sdk)
 - [Common Errors](#common-errors)
 
 -----------
@@ -627,6 +628,28 @@ history:
 - `Client Identity Chaincode Library` provides access to the `Attributes` or `Identity` set in `X509` certificates.
 - `Cryptogen` tool does not support addition of `Attributes` in the certificates.
 - For additional `Attributes` support in `X509` certificates, the `Identities` need to be setup with a `fabric-ca`.
+
+-----------
+
+## Fabric Node SDK
+- Module: `fabric-network`:
+    * `Gateway Class`: Connection point for accessing the network.
+    * `Network Class`: Represents set of `Peers` belonging to a network or the `Application Channel`.
+    * `Contract Class` and `Transaction Class`: Exposes APIs (`Invoke` and `Query`) for Chaincode interactions. `Transaction Class` exposes additional APIs for providing finer control over Chaincode interactions.
+    * Example flow: Pattern: Invoking and Querying Chaincode:
+        - Application creates instance of `Gateway Class` using `new` operator.
+        - Application then initializes the `Gateway Instance` with `Wallet` and the `Connection Profile`.
+        - `Wallet` holds the credentials information for the user. `Connection Profile` is provided in the form of `YAML` or `JSON` file.
+        - After initialization, the Application creates an instance of `Network Class` by invoking a function on `Gateway Class`.
+        - Then, Application creates the instance of `Contract Class` by invoking a function on the `Network Class` instance.
+        - Functions exposed by the `Contract Class` are then used for executing the `Invoke` and `Query` functions on the `Chaincode`.
+    * `fabric-network` module exposes classes for managing `Wallets`.
+- **`Wallet`**:
+    * A user may participate in multiple networks with different `Roles`.
+    * In other words, a user may have multiple `Identity Profiles` to interact with different networks.
+    * `Wallet` is construct that is used for managing these `Identity Profiles`.
+    * `Wallet` contains one or more user `Identity Context` and each of these `Identity Context` or `Identity Profiles` have `Certificates`, `Private Key` and a `Public Key`.
+    * `Identities` in `Wallet` are referred to by a `Label` which is a free format string and it is unique for each of the `Identities` managed in the `Wallet`.
 
 -----------
 
