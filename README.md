@@ -49,6 +49,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - [Range Queries](#range-queries)
 - [Rich Queries](#rich-queries)
 - [Asset History Logs](#asset-history-logs)
+- [Programmatic Access Control](#programmatic-access-control)
 - [Common Errors](#common-errors)
 
 -----------
@@ -612,6 +613,18 @@ history:
 ```
 - Just like `Rich Query API`, the `History API` is also not re-executed in `Validation` phase of the `Transaction`. This may lead to inconsistent `State` of `Chaincode`.
 - Do not use `History API` in `Update Transactions (Invoke)` unless we can guarentee `No Phantom Reads`.
+
+-----------
+
+## Programmatic Access Control
+- Fabric uses `PKI (Public Key Infrastructure)` for `Identity Management`.
+- All users are issued a `X509` certificate (`Enrollment` certificate). For e.g. Admin and other users in multiple roles.
+- All nodes in the network are also issued a `X509` certificate. For e.g. `Orderer`, `Peers`, `Client` etc.
+- `Authorization` decision is made by the nodes based on the user's `Role` and the `Policies` that have been set up for the network. For e.g. Only the identities assigned the `Role` of `Admin` can install and instantiate the chaincode.
+- At the network level, the `Access` and `Authorization` control is achieved by way of configuration. i.e. we have to declare the `Policies` that will drive the `Access` and `Authorization` at node level.
+- For building `Access Control` in `Chaincode`, check the `Client Identity Chaincode Library`: [https://github.com/hyperledger/fabric-chaincode-go/tree/main/pkg/cid](https://github.com/hyperledger/fabric-chaincode-go/tree/main/pkg/cid)
+- Custom `Attributes` are added to the `X509` certificates by the `Registrar`.
+- `Client Identity Chaincode Library` provides access to the `Attributes` or `Identity` set in `X509` certificates.
 
 -----------
 
