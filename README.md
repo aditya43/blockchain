@@ -654,6 +654,11 @@ history:
         - `InMemoryWallet`: Manages identities in memory.
         - `FileSystemWallet`: Manages identities on user's filesystem.
         - `CouchDBWallet`: Manages identities in a CouchDB Server.
+- Module: `Client Class` API:
+    * Provides low level functions (via `Channel Class`) for interacting with the `Peer` and the `Orderer`.
+    * Acts as a factory for `Peers`, `Orderer`, `Channel` and `Chaincode` classes.
+    * Manage `Channel Update Transactions`.
+    * Instance is `Stateful`. i.e. We cannot re-use same instance against multiple `Channel`.
 
 -----------
 
