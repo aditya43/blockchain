@@ -657,8 +657,13 @@ history:
 - Module: `Client Class` API:
     * Provides low level functions (via `Channel Class`) for interacting with the `Peer` and the `Orderer`.
     * Acts as a factory for `Peers`, `Orderer`, `Channel` and `Chaincode` classes.
+    * Provides functions for managing the `client instance` configuration.
     * Manage `Channel Update Transactions`.
     * Instance is `Stateful`. i.e. We cannot re-use same instance against multiple `Channel`.
+    * `Channel` related updates require multiple `Admin` signatures.
+    * `Channel Config` update `Tx` submitted to `Orderer`.
+    * Creates instances of `Peer Class` that are used for `Peer` queries.
+    * Provides functions for managing `Channel Configuration`.
 
 -----------
 
