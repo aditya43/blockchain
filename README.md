@@ -664,6 +664,17 @@ history:
     * `Channel Config` update `Tx` submitted to `Orderer`.
     * Creates instances of `Peer Class` that are used for `Peer` queries.
     * Provides functions for managing `Channel Configuration`.
+- Module: `Channel Class` API:
+    * Provides API for carrying out `Channel Aware Queries` and `Channel Aware Tasks`.
+    * For e.g.
+        - Create new `Channel`
+        - Update existing `Channel`
+        - Access to `Ledger (Blk, Txn)`
+        - Joining `Peer` to the `Channel`
+        - Instantiation, Invoke and Querying of the `Chaincode`
+        - Getting finer control over flow of the `Transaction`
+    * Channel class instance is initialized with `Peers` or `Orderer` on `Channel`.
+    * Exposes functions for accessing the `Channel Configuration`.
 
 -----------
 
