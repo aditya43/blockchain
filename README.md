@@ -84,7 +84,13 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     * **One party governs the data.**
 - **Blockchain solves a Digital Asset Problem**:
     * Trade, trust and ownership.
-    * Digital Assets
+    * Digital Assets.
+    * Transactionality.
+    * **Multiple parties govern the data.**
+    * Remove intermediaries.
+    * Solve double spend problem.
+    * Need for time and trust in a network.
+    * Gives birth to new business models.
 
 -----------
 
