@@ -14,6 +14,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 
 ## Important Notes
 - [Blockchain Basics](#blockchain-basics)
+- [Why Blockchain As Opposed To An Ordinary Database](#why-blockchain-as-opposed-to-an-ordinary-database)
 - [Key Concepts](#key-concepts)
     ```diff
     + Blockchain
@@ -71,6 +72,19 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - If anyone attempts to currupt a transaction, the nodes will not arrive at a **consensus** and hence will refuse to incorporate the transaction in the blockchain.
 - So every transaction is public and thousands of nodes unanimously agreed that a transaction has occurred on date X at time Y.
 - Everyone has access to shared single public source of truth.
+
+-----------
+
+## Why Blockchain As Opposed To An Ordinary Database
+- In a nutshell, a Database solves a Data Problem whereas a Blockchain solves a Digital Asset Problem.
+- **Database Solves a Data Problem**:
+    * Mature technology exists.
+    * Centralized or Distributed.
+    * Fit for purpose.
+    * **One party governs the data.**
+- **Blockchain solves a Digital Asset Problem**:
+    * Trade, trust and ownership.
+    * Digital Assets
 
 -----------
 
