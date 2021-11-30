@@ -72,6 +72,7 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
 - If anyone attempts to currupt a transaction, the nodes will not arrive at a **consensus** and hence will refuse to incorporate the transaction in the blockchain.
 - So every transaction is public and thousands of nodes unanimously agreed that a transaction has occurred on date X at time Y.
 - Everyone has access to shared single public source of truth.
+- Blockchain in first instance is all about optimizing **Shared B2B Processes**.
 
 -----------
 
