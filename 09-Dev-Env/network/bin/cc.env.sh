@@ -1,13 +1,13 @@
-# Generated: Wed Oct 20 13:13:57 UTC 2021
+# Generated: Sat Nov  6 11:20:39 UTC 2021
 export CC_LANGUAGE=golang
-export CC_PATH=token/v2
-export CC_NAME=token
+export CC_PATH=token/qry/v3
+export CC_NAME=CryptocurrencyTxn
 export CC_VERSION=1.0
 export CC_CHANNEL_ID=airlinechannel
-export CC_CONSTRUCTOR='{"Args":["init"]}'
+export CC_CONSTRUCTOR='{"Args":[]}'
 export CC_QUERY_ARGS='{"Args":["query","b"]}'
-export CC_INVOKE_ARGS='{"Args":["invoke","a","b","5"]}'
-export CORE_CHAINCODE_ID_NAME='token'
+export CC_INVOKE_ARGS='{"Args":["AddData","CryptocoinTransactions","2010-05-23", "null","98","13","10550","449","null"]}'
+export CORE_CHAINCODE_ID_NAME='CryptocurrencyTxn'
 export CORE_CHAINCODE_LOGGING_LEVEL=''
 export CORE_CHAINCODE_LOGGING_SHIM=''
 export CC_PRIVATE_DATA_JSON=''
